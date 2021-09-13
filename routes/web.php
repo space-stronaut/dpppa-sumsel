@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,9 @@ Route::get('/', function () {
     $posts = App\Models\Post::paginate(4);
     return view('welcome', compact('posts'));
 });
+
+Route::get('/posts', [WelcomeController::class, 'index']);
+Route::get('/posts/{post:slug}', [WelcomeController::class, 'show']);
 
 
 // For User
