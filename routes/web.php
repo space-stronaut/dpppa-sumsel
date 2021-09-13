@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,8 @@ Route::get('/check', function() {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = App\Models\Post::paginate(4);
+    return view('welcome', compact('posts'));
 });
 
 
@@ -50,6 +52,8 @@ Route::prefix('admin')
         Route::resource('confirmation', \App\Http\Controllers\ConfirmationController::class);
         Route::resource('galleries', \App\Http\Controllers\GalleryController::class);
         Route::resource('users', \App\Http\Controllers\RoleController::class);
+        Route::resource('documents', \App\Http\Controllers\DocumentController::class);
+        Route::post('/admin/documents/download', [DocumentController::class, 'download']);
     });
 
 

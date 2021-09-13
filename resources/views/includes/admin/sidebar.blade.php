@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('admin') }}" class="brand-link">
         <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="Yuli Shop Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">DPRD SUMSEL</span>
+        <span class="brand-text font-weight-light">DPPPA SUMSEL</span>
     </a>
 
     <!-- Sidebar -->
@@ -91,6 +91,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                    <a href="{{ route('admin.documents.index') }}" class="nav-link {{ Request::is('admin/documents') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-images"></i>
+                        <p>
+                            Dokumen
+                        </p>
+                    </a>
+                </li>
                 @endif
                 <li class="nav-item">
                     <a href="{{ route('admin.galleries.index') }}" class="nav-link {{ Request::is('galleries') ? 'active' : '' }}">
