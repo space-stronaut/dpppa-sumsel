@@ -32,6 +32,8 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', [WelcomeController::class, 'index']);
+Route::get('/dokumen', [WelcomeController::class, 'dokumen']);
+Route::get('/download/dokumen/{id}', [WelcomeController::class, 'download']);
 Route::get('/posts/{post:slug}', [WelcomeController::class, 'show']);
 
 
@@ -39,7 +41,7 @@ Route::get('/posts/{post:slug}', [WelcomeController::class, 'show']);
 Route::middleware(['auth', 'user'])
     ->group( function() {
         Route::get('user', function (){
-            return 'Halo User';
+            return view('home');
         });
     });
 

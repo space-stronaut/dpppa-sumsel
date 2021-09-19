@@ -93,6 +93,7 @@
                             </div>
                             <a href="/pelayanan.html" class="a-link-nav">Layanan</a>
                             <a href="/posts" class="a-link-nav">Berita</a>
+                            <a href="/dokumen" class="a-link-nav">Dokumen</a>
                         </div>
                         <div class="nav-cta">
                             <a href="/login" class="button-primary">

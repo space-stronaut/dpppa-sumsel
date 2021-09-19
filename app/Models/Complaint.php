@@ -11,7 +11,7 @@ class Complaint extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['image'];
+    protected $guarded = [];
 
     public function author()
     {
