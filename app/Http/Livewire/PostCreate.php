@@ -37,7 +37,7 @@ class PostCreate extends Component
             'image' => ['image']
         ]);
 
-        Complaint::create([
+        $complaint = Complaint::create([
             'title' => $this->title,
             'deskripsi_pengaduan' => $this->deskripsi_pengaduan,
             'slug' => Str::slug($this->title),
@@ -45,9 +45,22 @@ class PostCreate extends Component
             'user_id' => Auth::user()->id,
             'lokasi' => $this->lokasi,
             'complaints_category_id' => $this->complaints_category_id,
-            'image' => $this->image
+            'image' => $this->image->hashName()
         ]);
 
         $this->image->store('complaints', 'public');
+
+
+        $this->kosong();
+        $this->emit('added', $complaint);
+    }
+
+    private function kosong()
+    {
+        $this->title = null;
+        $this->deskripsi_pengaduan = null;
+        $this->lokasi = null;
+        $this->complaints_category_id = null;
+        $this->image = null;
     }
 }
